@@ -10,7 +10,7 @@ function mySelect({ optionValue, setOptionValue }) {
         id="item"
       >
         <option value="">select</option>
-        <option value="false">constant</option> // result: false
+        <option value="constant">constant</option> // result: false
         <option value="My Arg">argument</option>
         <option value="and">and</option>
         <option value="or">or</option>

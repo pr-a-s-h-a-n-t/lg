@@ -1,9 +1,9 @@
 import React from "react";
 import "./magic.css";
-function AddBtn(handleSelect) {
+function AddBtn( ) {
   return (
     <div className="_addArg">
-      <button onClick={handleSelect}>
+      <button onClick={ ()=>{}}>
        + add arg
       </button>
     </div>

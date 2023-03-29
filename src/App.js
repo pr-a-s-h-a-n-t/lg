@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { IonIcon } from "react-ion-icon";
 import MySelect from "./component/mySelect";
-import Btn from "./component/btn";
+import ResetBtn from "./component/ResetBtn";
 import Result from "./component/result";
 import TandFSelect from "./component/TandFSelect";
 import AddBtn from "./component/AddBtn";
@@ -14,7 +14,7 @@ function App() {
 
   let handleSelect = () => {
     console.log("handleSelect");
-    setOptionValue(undefined);
+    setOptionValue(null);
   };
 
   /* Task--
@@ -29,7 +29,7 @@ function App() {
       <h1 id="center">Hello ✋ Coder!!!</h1>
       <div className="_wrapper_1">
         <div className="_p">
-          <MySelect />
+          <MySelect setOptionValue={setOptionValue} optionValue={optionValue} />
 
           <TandFSelect />
         </div>
@@ -37,11 +37,15 @@ function App() {
         <AddBtn />
       </div>
       <div className="_wrapper_2">
-        <MySelect />
-        <Btn />
+        {optionValue === "constant" ? (
+          <TandFSelect handleSelect={handleSelect}  optionValue={optionValue} />
+        ) : (
+          <MySelect setOptionValue={setOptionValue} optionValue={optionValue} />
+        )}
+        <ResetBtn handleSelect={handleSelect} />
       </div>
       <div className="_result">
-        <Result />
+        <Result optionValue={optionValue} />
       </div>
     </div>
   );

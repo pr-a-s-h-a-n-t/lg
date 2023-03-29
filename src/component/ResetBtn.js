@@ -1,6 +1,6 @@
 import React from "react";
 
-function btn({ handleSelect }) {
+function ResetBtn({ handleSelect }) {
   return (
     <div>
       <button onClick={handleSelect}>
@@ -13,4 +13,4 @@ function btn({ handleSelect }) {
   );
 }
 
-export default btn;
+export default ResetBtn;
