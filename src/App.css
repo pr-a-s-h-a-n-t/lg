@@ -22,3 +22,12 @@
   color: #61dafb;
 }
  
+
+._wrapper_2, ._p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* row-gap: 1rem; */
+  width: 120px;
+}

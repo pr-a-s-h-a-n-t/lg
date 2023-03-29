@@ -1,0 +1,17 @@
+/* * {
+  padding: 0;
+  margin: 0;
+} */
+
+/* ------mySelect component cSS */
+
+/* --------end------------- */
+/* ----add args component cSS*/
+._addArg button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 0px; */
+}
+
+/* --------end------------- */

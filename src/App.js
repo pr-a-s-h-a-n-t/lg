@@ -3,7 +3,11 @@ import logo from "./logo.svg";
 
 import "./App.css";
 import { IonIcon } from "react-ion-icon";
-
+import MySelect from "./component/mySelect";
+import Btn from "./component/btn";
+import Result from "./component/result";
+import TandFSelect from "./component/TandFSelect";
+import AddBtn from "./component/AddBtn";
 function App() {
   const [result, setResult] = React.useState(undefined);
   const [optionValue, setOptionValue] = React.useState(undefined);
@@ -13,60 +17,31 @@ function App() {
     setOptionValue(undefined);
   };
 
+  /* Task--
+  1. when we select constant option from select then entire option should change and new option should appear with option value true and false. and result should be shown according to 
+  option value like if option value true then result is true and
+  if option value false then result is false!!.
+
+  2.
+   */
   return (
     <div className="App">
       <h1 id="center">Hello ✋ Coder!!!</h1>
+      <div className="_wrapper_1">
+        <div className="_p">
+          <MySelect />
 
-      {/* Task--
-      1. when we select constant option from select then entire option should change and new option should appear with option value true and false. and result should be shown according to 
-      option value like if option value true then result is true and
-      if option value false then result is false!!.
+          <TandFSelect />
+        </div>
 
-      2.
-       */}
-
-      <div className="top-select-op">
-        <select
-          name="item"
-          value={optionValue}
-          onChange={(e) => setOptionValue(e.target.value)}
-          id="item"
-        >
-          <option value="">select</option>
-          <option value="false">constant</option> // result: false
-          <option value="My Arg">argument</option>
-          <option value="and">and</option>
-          <option value="or">or</option>
-        </select>
-        <button onClick={handleSelect}>
-          {/*  reset everything */}
-          
-        </button>
+        <AddBtn />
       </div>
-
-      <div>
-        <select
-          name="item"
-          value={optionValue}
-          onChange={(e) => setOptionValue(e.target.value)}
-          id="item"
-        >
-          <option value="">select</option>
-          <option value="false">constant</option> // result: false
-          <option value="My Arg">argument</option>
-          <option value="and">and</option>
-          <option value="or">or</option>
-        </select>
-        <button onClick={handleSelect}>
-          {/*  reset everything */}
-          <span>
-            <ion-icon name="close-outline"></ion-icon>
-          </span>{" "}
-        </button>
+      <div className="_wrapper_2">
+        <MySelect />
+        <Btn />
       </div>
-      <div>
-        <span>result :</span>
-        <span>{optionValue ? optionValue : result}</span>
+      <div className="_result">
+        <Result />
       </div>
     </div>
   );
