@@ -11,6 +11,10 @@ import AddBtn from "./component/AddBtn";
 function App() {
   const [result, setResult] = React.useState(undefined);
   const [optionValue, setOptionValue] = React.useState(undefined);
+  const [boolean, setBoolean] = React.useState(null);
+  const [boolFlag, setBoolFlag] = React.useState(false);
+
+
 
   let handleSelect = () => {
     console.log("handleSelect");
@@ -38,14 +42,17 @@ function App() {
       </div>
       <div className="_wrapper_2">
         {optionValue === "constant" ? (
-          <TandFSelect handleSelect={handleSelect}  optionValue={optionValue} />
+          <TandFSelect setBoolean={setBoolean}  boolean={boolean} />
         ) : (
-          <MySelect setOptionValue={setOptionValue} optionValue={optionValue} />
+          <MySelect  setBoolFlag={setBoolFlag} boolFlag= {boolFlag }setOptionValue={setOptionValue} optionValue={optionValue} />
         )}
         <ResetBtn handleSelect={handleSelect} />
       </div>
       <div className="_result">
-        <Result optionValue={optionValue} />
+        <Result 
+        boolFlag = {boolFlag}
+        boolean = {boolean}
+        optionValue={optionValue} />
       </div>
     </div>
   );

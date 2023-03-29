@@ -1,12 +1,19 @@
 import React from "react";
 
-function mySelect({ optionValue, setOptionValue }) {
+function mySelect({ optionValue, setOptionValue, setBoolFlag, boolFlag }) {
+
+  function  handleChange(e){
+    if(e.target.value === "constant"){
+      setBoolFlag(true);
+    }
+    setOptionValue(e.target.value)
+  }
   return (
     <div>
       <select
         name="item"
         value={optionValue}
-        onChange={(e) => setOptionValue(e.target.value)}
+        onChange={handleChange}
         id="item"
       >
         <option value="">select</option>

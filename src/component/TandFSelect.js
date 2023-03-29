@@ -1,12 +1,12 @@
 import React from "react";
 
-function TandFSelect({ optionValue, setOptionValue }) {
+function TandFSelect({ boolean, setBoolean }) {
   return (
     <div>
       <select
         name="item"
-        value={optionValue}
-        onChange={(e) => setOptionValue(e.target.value)}
+        value={boolean}
+        onChange={(e) => setBoolean(e.target.value)}
       >
         {/* <option value="">select</option> */}
         <option value="false">False</option> // result: false
