@@ -11,12 +11,11 @@ function App() {
   let handleSelect = () => {
     console.log("handleSelect");
     setOptionValue(undefined);
-    
   };
 
   return (
     <div className="App">
-      <h1>Hello ✋ Coder!!!</h1>
+      <h1 id="center">Hello ✋ Coder!!!</h1>
 
       {/* Task--
       1. when we select constant option from select then entire option should change and new option should appear with option value true and false. and result should be shown according to 
@@ -25,6 +24,25 @@ function App() {
 
       2.
        */}
+
+      <div className="top-select-op">
+        <select
+          name="item"
+          value={optionValue}
+          onChange={(e) => setOptionValue(e.target.value)}
+          id="item"
+        >
+          <option value="">select</option>
+          <option value="false">constant</option> // result: false
+          <option value="My Arg">argument</option>
+          <option value="and">and</option>
+          <option value="or">or</option>
+        </select>
+        <button onClick={handleSelect}>
+          {/*  reset everything */}
+          
+        </button>
+      </div>
 
       <div>
         <select
@@ -45,9 +63,6 @@ function App() {
             <ion-icon name="close-outline"></ion-icon>
           </span>{" "}
         </button>
-
-
-        
       </div>
       <div>
         <span>result :</span>
