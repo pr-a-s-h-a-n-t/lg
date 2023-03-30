@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./magic.css";
-function AddBtn( {setArgs, args}) {
+function AddBtn( {setArgs, args, setData, data}) {
+
+// useEffect(()=>{
+
+// let fillObj = {
+//   boolValue: "",
+//   input: "",
+// }
+// }, [args])
+
+let fillObj = {
+  id:"",
+  boolValue: "",
+  input: "", 
+
+}
+
+ 
 
   function handleArgs( ){
-    setArgs(  args + 1 );
+    setArgs((prev) => [...prev, fillObj]);
   }
   return (
     <div className="_addArg">

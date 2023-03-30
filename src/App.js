@@ -17,34 +17,27 @@ function App() {
   const [boolFlag, setBoolFlag] = React.useState(false);
   const [input, setInput] = React.useState("My Args");
 
-  const [args, setArgs] = React.useState(0);
+  const [args, setArgs] = React.useState([]);
+  const [data, setData] = React.useState([]);
+
 
   let argsArray;
 
   // function fillArray() {
     argsArray = Array(args).fill("New Args");
-    console.log(argsArray, "new Args added..");
+    // console.log(argsArray, "new Args added..");
+
   // }
 
   let handleSelect = () => {
-    console.log("handleSelect");
+    // console.log("handleSelect");
     setOptionValue(null);
     setResult(undefined);
   };
 
-  // useEffect(() => console.log(result, "result inside top level", boolean, "boolean inside top level"),[result])
+  console.log(args, "asdasdasdasdadassdadad");
+
   
-  // useEffect(() => {
-  //   fillArray();
-  // }, [args]);
-
-  /* Task--
-  1. when we select constant option from select then entire option should change and new option should appear with option value true and false. and result should be shown according to 
-  option value like if option value true then result is true and
-  if option value false then result is false!!.
-
-  2.
-   */
   return (
     <div className="App">
       <h1 id="center">Hello ✋ Coder!!!</h1>
@@ -52,23 +45,29 @@ function App() {
         <div className="_p">
           <InputArgs input={input} setInput={setInput} />
 
-          <TandFSelect result={result} setResult={setResult}  setBoolean={setBoolean} boolean={boolean} />
+          <TandFSelect result={result} setResult={setResult}   />
         </div>
-        {argsArray && argsArray.length > 0
-          ? argsArray.map((args, i) => {
+        {args && args.length > 0
+          ? args.map((args, i) => {
               return (
                 <div
                 key={i}
+                 
                  className="_p">
-                  <InputArgs input={input} setInput={setInput} />
+                  <InputArgs args={args}   />
 
-                  <TandFSelect result={result} setResult={setResult}  setBoolean={setBoolean} boolean={boolean} />
+                  <TandFSelect  id = {i} args={args}  setBoolean={setBoolean} boolean={boolean} />
                 </div>
               );
             })
           : ""}
+{/* 
+if some how i make an state of obj that store all the data req
 
-        <AddBtn  setArgs={setArgs} args={args} />
+
+
+ */}
+        <AddBtn setData={setData} data= {data}  setArgs={setArgs} args={args} />
       </div>
       <div className="_wrapper_2">
         {optionValue === "constant" ? (

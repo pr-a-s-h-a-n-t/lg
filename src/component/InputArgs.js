@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function InputArgs({ input, setInput }) {
+function InputArgs({ args }) {
+
+  const [input, setInput] = React.useState(" ");
+
+  function handleInput(e){
+    setInput(e.target.value);
+
+  }
+  console.log(input,"------------" ,args)
+  // useEffect(()=>{
+
+  //   console.log(input,"------------" ,args)
+  // },[input])
+
   return (
     <div>
-      <input type="text" value={input}   onChange={(e) => setInput(e.target.value)} />
+      <input type="text" value={input}   onChange={handleInput} />
     </div>
   );
 }

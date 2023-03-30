@@ -7,6 +7,7 @@ function MySelect({
   boolFlag,
   result,
   setResult,
+  boolean,
 }) {
   function handleChange(e) {
     setOptionValue(e.target.value);
