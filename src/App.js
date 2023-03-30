@@ -29,8 +29,11 @@ function App() {
   let handleSelect = () => {
     console.log("handleSelect");
     setOptionValue(null);
+    setResult(undefined);
   };
 
+  // useEffect(() => console.log(result, "result inside top level", boolean, "boolean inside top level"),[result])
+  
   // useEffect(() => {
   //   fillArray();
   // }, [args]);
@@ -49,7 +52,7 @@ function App() {
         <div className="_p">
           <InputArgs input={input} setInput={setInput} />
 
-          <TandFSelect />
+          <TandFSelect result={result} setResult={setResult}  setBoolean={setBoolean} boolean={boolean} />
         </div>
         {argsArray && argsArray.length > 0
           ? argsArray.map((args, i) => {
@@ -59,7 +62,7 @@ function App() {
                  className="_p">
                   <InputArgs input={input} setInput={setInput} />
 
-                  <TandFSelect />
+                  <TandFSelect result={result} setResult={setResult}  setBoolean={setBoolean} boolean={boolean} />
                 </div>
               );
             })
@@ -69,13 +72,16 @@ function App() {
       </div>
       <div className="_wrapper_2">
         {optionValue === "constant" ? (
-          <TandFSelect setBoolean={setBoolean} boolean={boolean} />
+           
+          <TandFSelect result={result} setResult={setResult}  setBoolean={setBoolean} boolean={boolean} />
         ) : (
           <MySelect
             setBoolFlag={setBoolFlag}
             boolFlag={boolFlag}
             setOptionValue={setOptionValue}
             optionValue={optionValue}
+            setResult= {setResult}
+            result = {result}
           />
         )}
         <ResetBtn handleSelect={handleSelect} />
@@ -85,6 +91,7 @@ function App() {
           boolFlag={boolFlag}
           boolean={boolean}
           optionValue={optionValue}
+          result={result}
         />
       </div>
     </div>
