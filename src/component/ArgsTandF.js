@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-function TandFSelect({ setResult, result }) {
+function ArgsTandF({ setResult, result }) {
   const [select, setSelect] = useState("");
   function handleChange(e) {
     setSelect(e.target.value);
+    
   }
   useEffect(() => {
-    setResult(() => select);
-  }, [select]);
+    setResult(()=> select)
+  },[select]);
 
   return (
     <div>
@@ -20,4 +21,4 @@ function TandFSelect({ setResult, result }) {
   );
 }
 
-export default TandFSelect;
+export default ArgsTandF;

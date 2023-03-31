@@ -9,6 +9,7 @@ import Result from "./component/result";
 import TandFSelect from "./component/TandFSelect";
 import AddBtn from "./component/AddBtn";
 import InputArgs from "./component/InputArgs";
+import ArgsTandF from "./component/ArgsTandF";
 
 function App() {
   const [result, setResult] = React.useState(undefined);
@@ -34,6 +35,7 @@ function App() {
     setOptionValue(null);
     setResult(undefined);
   };
+  
 
   console.log(args, "asdasdasdasdadassdadad");
 
@@ -45,7 +47,7 @@ function App() {
         <div className="_p">
           <InputArgs input={input} setInput={setInput} />
 
-          <TandFSelect result={result} setResult={setResult}   />
+          <ArgsTandF result={result} setResult={setResult}   />
         </div>
         {args && args.length > 0
           ? args.map((args, i) => {
@@ -54,7 +56,7 @@ function App() {
                 key={i}
                  
                  className="_p">
-                  <InputArgs args={args}   />
+                  <InputArgs args={args}  id = {i}   />
 
                   <TandFSelect  id = {i} args={args}  setBoolean={setBoolean} boolean={boolean} />
                 </div>
@@ -98,3 +100,5 @@ if some how i make an state of obj that store all the data req
 }
 
 export default App;
+
+

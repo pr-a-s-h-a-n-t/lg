@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function MySelect({
   optionValue,
@@ -9,26 +9,37 @@ function MySelect({
   setResult,
   boolean,
 }) {
-  function handleChange(e) {
-    setOptionValue(e.target.value);
+  // function handleChange(e) {
+  //   setOptionValue(e.target.value);
 
-    if (e.target.value === "constant") {
-      setResult(false);
-    }
-    if (e.target.value === "and") {
-      setResult("ddd");
-    }
-    if (e.target.value === "My Arg") {
-      setResult(false);
-    }
-    if (e.target.value === "or") {
-      setResult("");
-    }
+  //   if (e.target.value === "constant") {
+  //     setResult(() => false);
+  //   }
+  //   if (e.target.value === "and") {
+  //     setResult("ddd");
+  //   }
+  //   if (e.target.value === "My Arg") {
+  //     setResult(false);
+  //   }
+  //   if (e.target.value === "or") {
+  //     setResult("");
+  //   }
+  // }
+
+  const [select, setSelect] = useState("");
+  function handleChange(e) {
+    setSelect(e.target.value);
   }
+  useEffect(() => {
+    if (select === "constant") {
+      setResult(() => false);
+      // setOptionValue(() => select);
+    }
+  }, [select]);
 
   return (
     <div>
-      <select name="item" value={optionValue} onChange={handleChange} id="item">
+      <select name="item" value={select} onChange={handleChange} id="item">
         <option value="">select...</option>
         <option value="constant">constant</option> // result: false
         <option value="My Arg">argument</option>
